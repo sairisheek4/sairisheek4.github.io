@@ -9,21 +9,32 @@
         let useremail=""
         let username=""
         let currentbalance=0
+        function showuser(){
+            let str="<option value=0>--select--</option>"
+            for(let i=0;i<users.length;i++){
+                str+=`<option value='${users[i].email}>'${users[i].name}>`
+            }
+            
+        }
         function home(){
             let str=`
-            
-          <h2>welcome ${username}</h2>
-          <button onclick="showlogin()">logout</button>
-          <p><input type="number" id="amount" placeholder="enter amount"></p>
+            <div style="text-align:center">
+          <h2>Welcome ${username}</h2>
+          
+         
           <p><select id="type">
             <option value=0>--select--</option>
             <option value=1>deposit</option>
             <option value=2>withdraw</option>
             <option value=3>transfer</option>
             </select></p>
+            <p><select id="seluser"></select></p>
+                 <p><input type="number" id="amount" placeholder="enter amount"></p>
             <button onclick="savedata()">submit</button>
+            <button onclick="showlogin()">logout</button>
             <div id="funds"><p>current balance:<span id="spbalance">${currentbalance}</span></p></div>
-          `
+          </div>
+            `
           root.innerHTML=str
         }
 
@@ -48,27 +59,30 @@
 
         function showlogin(){
             let str=`
-            <div>
+            <div style="text-align:center">
                 
                 <h2>Login Form</h2>
                 <div id="msg"></div>
                 <p><input type="text" id="email" placeholder="email" ></p>
                 <p><input type="password" id="password" placeholder="password"></p>
-                <button onclick="chkuser()">login</button><br>
-               <p> <button onclick="showreg()">create account</button></p><hr>
+                <button onclick="chkuser()">Login</button><br>
+               <p> <button onclick="showreg()">Create Account</button></p><hr>
                 </div>
             `
+            showuser()
         root.innerHTML=str
         }
         function showreg(){
             let str=`
-    <h1>New registration</h1>
+            <div style="text-align:center">
+    <h1>User registration</h1>
     <P><input type="text" id="name" placeholder="name"></P>
     <P><input type="text" id="email" placeholder="email"></P>
     <P><input type="password" id="password" placeholder="password"></P>
     <P><input type="datetime-local" id="dob"></P>
-     <button onclick="adduser()">submit</button><br>
-     <p>already a member?<button onclick="showlogin()">login here</button></p>
+     <button onclick="adduser()">Submit</button><br>
+     <p>already a member? <button onclick="showlogin()">Login Here</button></p>
+     </div>
     `
     root.innerHTML=str
          }
@@ -110,6 +124,7 @@
            }
            spbalance.innerHTML=users[i].balance
            break;
+         
             }
            }
         }
