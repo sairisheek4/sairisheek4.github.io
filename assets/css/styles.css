@@ -10,12 +10,13 @@
     }
 
     .header-row {
-      background-color: orange;
+      background-color: rgb(10, 10, 10);
       display: flex;
       justify-content: space-between;
       align-items: center;
       position: sticky;
       top: 0px;
+      color: aliceblue;
     }
 
     .header-row .box {
