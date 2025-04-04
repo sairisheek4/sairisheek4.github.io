@@ -31,6 +31,7 @@
 
     .header-row a {
       text-decoration: none;
+      color: aliceblue;
     }
 
     .header-row a:hover {
@@ -62,3 +63,11 @@
       border: none;
       border-radius: 10%;
     }
+    .pbox{
+      width: 300px;
+      border: 10px solid gray;
+      border-radius: 20px;
+      padding: 20px;
+      margin: 20px;
+      
+  }
